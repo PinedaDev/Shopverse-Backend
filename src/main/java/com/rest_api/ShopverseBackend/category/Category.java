@@ -1,4 +1,4 @@
-package com.rest_api.fs14backend.category;
+package com.rest_api.ShopverseBackend.category;
 
 
 import jakarta.persistence.*;

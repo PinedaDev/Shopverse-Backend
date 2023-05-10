@@ -1,13 +1,13 @@
-package com.rest_api.fs14backend;
+package com.rest_api.ShopverseBackend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Fs14BackendApplication {
+public class ShopverseBackend {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Fs14BackendApplication.class, args);
+		SpringApplication.run(ShopverseBackend.class, args);
 	}
 
 }

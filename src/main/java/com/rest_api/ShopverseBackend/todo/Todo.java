@@ -1,11 +1,10 @@
-package com.rest_api.fs14backend.todo;
+package com.rest_api.ShopverseBackend.todo;
 
-import com.rest_api.fs14backend.category.Category;
+import com.rest_api.ShopverseBackend.category.Category;
 import jakarta.persistence.*;
 
 import java.util.UUID;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UuidGenerator;

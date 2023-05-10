@@ -1,9 +1,8 @@
-package com.rest_api.fs14backend.todo;
+package com.rest_api.ShopverseBackend.todo;
 
-import com.rest_api.fs14backend.category.Category;
-import com.rest_api.fs14backend.category.CategoryRepository;
-import com.rest_api.fs14backend.category.CategoryService;
-import com.rest_api.fs14backend.exceptions.NotFoundException;
+import com.rest_api.ShopverseBackend.category.Category;
+import com.rest_api.ShopverseBackend.category.CategoryService;
+import com.rest_api.ShopverseBackend.exceptions.NotFoundException;
 import java.util.List;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,10 +1,10 @@
-package com.rest_api.fs14backend;
+package com.rest_api.ShopverseBackend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Fs14BackendApplicationTests {
+class ShopverseBackendTests {
 
 	@Test
 	void contextLoads() {

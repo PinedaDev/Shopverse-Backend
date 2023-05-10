@@ -1,7 +1,7 @@
-package com.rest_api.fs14backend.filters;
+package com.rest_api.ShopverseBackend.filters;
 
-import com.rest_api.fs14backend.SecurityConfig.CustomUserDetailsService;
-import com.rest_api.fs14backend.utils.JwtUtils;
+import com.rest_api.ShopverseBackend.SecurityConfig.CustomUserDetailsService;
+import com.rest_api.ShopverseBackend.utils.JwtUtils;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

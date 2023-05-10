@@ -1,7 +1,7 @@
-package com.rest_api.fs14backend.SecurityConfig;
+package com.rest_api.ShopverseBackend.SecurityConfig;
 
 
-import com.rest_api.fs14backend.filters.JwtFilter;
+import com.rest_api.ShopverseBackend.filters.JwtFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

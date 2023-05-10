@@ -1,4 +1,4 @@
-package com.rest_api.fs14backend.todo;
+package com.rest_api.ShopverseBackend.todo;
 
 import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,4 +1,4 @@
-package com.rest_api.fs14backend.user;
+package com.rest_api.ShopverseBackend.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;

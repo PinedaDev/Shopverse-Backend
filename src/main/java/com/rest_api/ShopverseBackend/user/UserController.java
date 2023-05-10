@@ -1,6 +1,6 @@
-package com.rest_api.fs14backend.user;
+package com.rest_api.ShopverseBackend.user;
 
-import com.rest_api.fs14backend.utils.JwtUtils;
+import com.rest_api.ShopverseBackend.utils.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

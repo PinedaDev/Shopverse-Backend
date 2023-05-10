@@ -1,6 +1,5 @@
-package com.rest_api.fs14backend.category;
+package com.rest_api.ShopverseBackend.category;
 
-import com.rest_api.fs14backend.todo.Todo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

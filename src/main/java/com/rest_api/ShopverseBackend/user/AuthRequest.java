@@ -1,4 +1,4 @@
-package com.rest_api.fs14backend.user;
+package com.rest_api.ShopverseBackend.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

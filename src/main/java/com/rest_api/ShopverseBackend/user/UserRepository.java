@@ -1,4 +1,4 @@
-package com.rest_api.fs14backend.category;
+package com.rest_api.ShopverseBackend.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface CategoryRepository extends JpaRepository<Category, UUID> {
+public interface UserRepository extends JpaRepository<User, UUID> {
+  User findByUsername(String username);
 }
