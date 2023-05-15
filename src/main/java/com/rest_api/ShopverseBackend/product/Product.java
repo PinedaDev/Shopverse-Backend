@@ -2,9 +2,7 @@ package com.rest_api.ShopverseBackend.product;
 
 import jakarta.persistence.*;
 
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,25 +25,30 @@ public class Product
   private UUID productId;
 
   @Column(nullable = false)
-  @NotBlank
+  @NotBlank(message = "Product Name is mandatory")
   private String name;
 
   @Column(nullable = true)
   private String img;
 
   @Column(nullable = false)
+  @NotBlank(message = "Product description is mandatory")
   private String description;
 
   @Column(nullable = false)
+  @NotNull(message = "Provide at least one category")
   private String[] categories;
 
   @Column(nullable = false)
+  @NotEmpty(message = "Provide at least one color variant")
   private String[] colors;
 
   @Column(nullable = false)
+  @NotEmpty(message = "Provide at least one size variant")
   private int[] sizes;
 
   @Column(nullable = false)
+  @NotNull
   private int price;
 
   @Column(nullable = true)
