@@ -1,5 +1,6 @@
 package com.rest_api.ShopverseBackend.product;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import jakarta.validation.constraints.*;
@@ -7,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.core.annotation.AliasFor;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ public class Product
 {
   @Id
   @GeneratedValue
+  @JsonProperty("id")
   private UUID productId;
 
   @Column(nullable = false)
