@@ -51,8 +51,9 @@ public class Product
   private int[] sizes;
 
   @Column(nullable = false)
-  @NotNull
-  private int price;
+  @Min(value = 1L, message = "Price must be greater than zero")
+  @Max(value = 3_000L, message = "Price mustn't be greater than 3_000")
+  private Integer price;
 
   @Column(nullable = true)
   private int reviews;
