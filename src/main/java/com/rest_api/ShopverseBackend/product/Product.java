@@ -8,10 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.core.annotation.AliasFor;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.UUID;
 
 @Entity(name = "product")
@@ -36,6 +34,7 @@ public class Product
 
   @Column(nullable = false)
   @NotBlank(message = "Product description is mandatory")
+  @Size(min = 20, max=300, message = "Provide a longer description")
   private String description;
 
   @Column(nullable = false)
