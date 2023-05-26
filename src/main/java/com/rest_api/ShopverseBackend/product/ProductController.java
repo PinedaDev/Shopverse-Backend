@@ -76,6 +76,9 @@ public class ProductController {
     if (product.getSizes() != null) {
       existingProduct.get().setSizes(product.getSizes());
     }
+    if (product.getImg() != null) {
+      existingProduct.get().setImg(product.getImg());
+    }
     if (product.getPrice() != null) {
       existingProduct.get().setPrice(product.getPrice());
     }

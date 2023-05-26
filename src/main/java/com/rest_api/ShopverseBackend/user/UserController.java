@@ -2,6 +2,7 @@ package com.rest_api.ShopverseBackend.user;
 
 
 import com.rest_api.ShopverseBackend.utils.JwtUtils;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -14,7 +15,7 @@ import java.util.Map;
 
 
 @RequestMapping("api/v1")
-@CrossOrigin(origins = "http://127.0.0.1:5173")
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 public class UserController {
 
@@ -57,5 +58,19 @@ public class UserController {
     userRepository.save(newUser);
 
     return newUser;
+  }
+
+  @PostConstruct
+  public void initAdminUser() {
+    String adminUsername = "admin";
+    String adminPassword = "adminpassword";
+
+    // Check if the admin user already exists
+    if (userRepository.findByUsername(adminUsername) == null) {
+      // Create the admin user
+      User adminUser = new User(adminUsername, passwordEncoder.encode(adminPassword), User.Role.ADMIN);
+      userRepository.save(adminUser);
+      System.out.println("Admin user initialized successfully.");
+    }
   }
 }

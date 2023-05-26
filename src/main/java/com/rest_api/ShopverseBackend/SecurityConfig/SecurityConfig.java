@@ -45,10 +45,10 @@ public class SecurityConfig {
             .permitAll()
             .and()
             .authorizeHttpRequests()
-            .requestMatchers(HttpMethod.GET, "/api/v1/products/")
+            .requestMatchers(HttpMethod.GET, "/api/v1/products")
             .permitAll()
             .requestMatchers("/api/v1/users").hasRole("ADMIN")
-            .requestMatchers("/hello").hasRole("ADMIN")
+            .requestMatchers("/api/v1/products").hasRole("ADMIN")
             .anyRequest()
             .authenticated()
             .and()
@@ -61,17 +61,3 @@ public class SecurityConfig {
     return http.build();
   }
 }
-
-//  @Bean
-//  public CorsFilter corsFilter() {
-//    CorsConfiguration corsConfiguration = new CorsConfiguration();
-//    corsConfiguration.setAllowCredentials(true);
-//    corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "myDomaibn.com"));
-//    corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
-//      "Accept", "Authorization", "Origin, Accept", "X-Requested-With",
-//      "Access-Control-Request-Method", "Access-Control-Allow-Origin", " Access-Control-Allow-Credentials"));
-//    corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-//    UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
-//    urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
-//    return new CorsFilter(urlBasedCorsConfigurationSource);
-//  }
