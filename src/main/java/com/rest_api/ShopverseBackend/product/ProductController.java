@@ -10,7 +10,7 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/api/v1/products")
-@CrossOrigin(origins = "${DOMAIN:http://localhost:5173}")
+@CrossOrigin(origins = "https://shopverse-store.netlify.app/")
 @AllArgsConstructor
 public class ProductController {
   private final ProductService productService;

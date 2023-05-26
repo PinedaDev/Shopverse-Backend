@@ -15,7 +15,7 @@ import java.util.Map;
 
 
 @RequestMapping("api/v1")
-@CrossOrigin(origins = "${DOMAIN:http://localhost:5173}")
+@CrossOrigin(origins = "https://shopverse-store.netlify.app/")
 @RestController
 public class UserController {
 
