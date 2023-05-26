@@ -14,7 +14,8 @@ import java.util.function.Function;
 
 @Service
 public class JwtUtils {
-  final String secret = "ThisIsAMuchLongerPasswordOhBoysDoINeedMoreCharacters";
+
+  final String secret = System.getenv("SECRET_JWT");
 
   // secret variable to be moved to .env
   public String generateToken(User user) {
