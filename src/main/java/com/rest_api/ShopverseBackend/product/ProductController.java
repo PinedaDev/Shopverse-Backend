@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
-@RestController
+@CrossOrigin(origins = "https://shopverse-store.netlify.app")
 @RequestMapping("/api/v1/products")
-@CrossOrigin(origins = "https://shopverse-store.netlify.app/")
+@RestController
 @AllArgsConstructor
 public class ProductController {
   private final ProductService productService;
