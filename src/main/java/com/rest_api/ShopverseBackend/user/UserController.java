@@ -15,8 +15,8 @@ import java.util.Map;
 
 
 @CrossOrigin(origins = "https://shopverse-store.netlify.app")
-@RequestMapping("api/v1")
 @RestController
+@RequestMapping("api/v1")
 public class UserController {
 
   @Autowired
