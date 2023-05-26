@@ -11,7 +11,7 @@ public class CORSConfig implements WebMvcConfigurer {
   @Override
   public void addCorsMappings(CorsRegistry registry) {
     registry.addMapping("/**")
-            .allowedOrigins("https://shopverse-store.netlify.app")
+            .allowedOrigins("https://shopverse-store.netlify.app", "http://localhost:2345", "http://localhost:5173")
             .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
             .allowedHeaders("*")
             .exposedHeaders("Access-Control-Allow-Origin");
