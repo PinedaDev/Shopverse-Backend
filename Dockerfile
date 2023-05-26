@@ -23,7 +23,7 @@ FROM openjdk:17
 WORKDIR /fs14-backend
 
 # Copy the application JAR file from the build stage to the container
-COPY --from=build /fs14-backend/target/server-docker.jar /backend/server-docker.jar
+COPY --from=build /fs14-backend/target/server-docker.jar /fs14-backend/server-docker.jar
 
 # Expose the port that the Spring Boot application will run on
 EXPOSE 8080
