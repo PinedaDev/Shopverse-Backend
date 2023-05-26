@@ -2,7 +2,7 @@
 FROM maven:3.8.3-openjdk-17 AS build
 
 # Set the working directory in the container
-WORKDIR /backend
+WORKDIR /fs14-backend
 
 # Copy the pom.xml file to the container
 COPY pom.xml .
