@@ -62,8 +62,8 @@ public class UserController {
 
   @PostConstruct
   public void initAdminUser() {
-    String adminUsername = "admin";
-    String adminPassword = "adminpassword";
+    String adminUsername = System.getenv("ADMIN_USERNAME");
+    String adminPassword = System.getenv("ADMIN_PASSWORD");
 
     // Check if the admin user already exists
     if (userRepository.findByUsername(adminUsername) == null) {
