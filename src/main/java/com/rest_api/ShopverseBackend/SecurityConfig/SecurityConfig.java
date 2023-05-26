@@ -1,6 +1,5 @@
 package com.rest_api.ShopverseBackend.SecurityConfig;
 
-
 import com.rest_api.ShopverseBackend.filters.JwtFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -15,9 +14,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.context.annotation.Import;
 
 @Configuration
 @EnableWebSecurity
+@Import(CORSConfig.class)
 public class SecurityConfig {
 
   @Autowired

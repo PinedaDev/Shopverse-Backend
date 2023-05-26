@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Map;
 
 
-@CrossOrigin(origins = "https://shopverse-store.netlify.app")
 @RestController
 @RequestMapping("api/v1")
 public class UserController {
