@@ -29,4 +29,4 @@ COPY --from=build /fs14-backend/target/server-docker.jar /fs14-backend/server-do
 EXPOSE 8080
 
 # Start the Spring Boot application when the container starts
-CMD ["java", "-jar", "/backend/server-docker.jar"]
+CMD ["java", "-jar", "/fs14-backend/server-docker.jar"]
