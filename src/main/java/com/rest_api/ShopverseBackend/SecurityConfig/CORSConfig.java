@@ -14,7 +14,6 @@ public class CORSConfig implements WebMvcConfigurer {
             .allowedOrigins("https://shopverse-store.netlify.app")
             .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
             .allowedHeaders("*")
-            .allowCredentials(true)
-            .maxAge(3600);
+            .exposedHeaders("Access-Control-Allow-Origin");
   }
 }
