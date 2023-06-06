@@ -60,7 +60,7 @@ public class SecurityConfig {
     http.csrf().disable()
             .cors(Customizer.withDefaults())
             .authorizeHttpRequests()
-            .requestMatchers("/api/v1/signup", "/api/v1/signin")
+            .requestMatchers("/api/v1/signup", "/api/v1/signin", "/api/v1/orders")
             .permitAll()
             .and()
             .authorizeHttpRequests()

@@ -12,8 +12,8 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Entity(name = "product")
-@Table(name = "products")
+@Entity(name = "_product")
+@Table(name = "_products")
 @Data
 @Builder
 @NoArgsConstructor
@@ -32,9 +32,9 @@ public class Product
   @Column(nullable = true)
   private String img;
 
-  @Column(nullable = false)
+  @Column(nullable = false, length = 500)
   @NotBlank(message = "Product description is mandatory")
-  @Size(min = 20, max=300, message = "Provide a longer description")
+  @Size(min = 20, max=500, message = "Description character range 20 - 500")
   private String description;
 
   @Column(nullable = false)

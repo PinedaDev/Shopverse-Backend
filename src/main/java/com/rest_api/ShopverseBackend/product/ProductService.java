@@ -22,9 +22,9 @@ public class ProductService {
     return productRepo.save(product);
   }
 
-  public Optional<Product> findById(UUID id)
+  public Optional<Product> findById(UUID productId)
   {
-    return productRepo.findById(id);
+    return productRepo.findById(productId);
   }
 
   public void delete(Product product)

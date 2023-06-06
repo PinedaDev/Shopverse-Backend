@@ -1,6 +1,7 @@
 package com.rest_api.ShopverseBackend.user;
 
 
+import com.rest_api.ShopverseBackend.product.ProductService;
 import com.rest_api.ShopverseBackend.utils.JwtUtils;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,10 @@ public class UserController {
   private PasswordEncoder passwordEncoder;
   @Autowired
   private JwtUtils jwtUtils;
+
+
+  public UserController() {
+  }
 
   @GetMapping("/users")
   public List<User> findAll() {
