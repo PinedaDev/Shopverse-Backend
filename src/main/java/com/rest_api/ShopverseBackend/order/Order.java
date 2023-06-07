@@ -37,19 +37,14 @@ public class Order {
   @CollectionTable(name = "_order_product", joinColumns = @JoinColumn(name = "order_id"))
   private List<OrderProduct> products = new ArrayList<>();
 
-  @NotNull
-  @ElementCollection
-  private List<Integer> quantities = new ArrayList<>();
-
   @Enumerated(EnumType.STRING)
   private Status status;
 
   private LocalDateTime issuedAt = LocalDateTime.now();
 
-  public Order(User user, List<OrderProduct> products, List<Integer> quantities, Status status) {
+  public Order(User user, List<OrderProduct> products, Status status) {
     this.user = user;
     this.products = products;
-    this.quantities = quantities;
     this.status = status;
   }
 

@@ -38,7 +38,7 @@ public class OrderController {
     // Update the Order entity with the productIds and quantities
     List<OrderProduct> orderProducts = orderRequest.getProducts();
     List<UUID> productIds = orderProducts.stream()
-            .map(OrderProduct::getId)
+            .map(OrderProduct::getProductId)
             .toList();
 
     List<Product> existingProducts = productRepo.findAllById(productIds);
@@ -49,7 +49,7 @@ public class OrderController {
     UUID orderId = UUID.randomUUID();
 
     // Update the Order entity with the generated orderId
-    Order newOrder = new Order(existingUser.get(), orderRequest.getProducts(), orderRequest.getQuantities(), Order.Status.PENDING);
+    Order newOrder = new Order(existingUser.get(), orderRequest.getProducts(), Order.Status.PENDING);
     newOrder.setOrderId(orderId);
 
     orderRepo.save(newOrder);

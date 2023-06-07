@@ -13,8 +13,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class OrderProduct {
 
-  private UUID id;
+  private UUID productId;
   private String color;
   private String size;
-
+  private Integer amount;
 }
