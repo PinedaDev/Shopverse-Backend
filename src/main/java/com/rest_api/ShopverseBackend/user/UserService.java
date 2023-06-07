@@ -1,5 +1,7 @@
 package com.rest_api.ShopverseBackend.user;
 
+import com.rest_api.ShopverseBackend.order.Order;
+import com.rest_api.ShopverseBackend.product.Product;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,4 +19,6 @@ public class UserService {
   public Optional<User> findById(UUID userId) { return userRepo.findById(userId);}
 
   public User saveOne(User user) {return userRepo.save(user);}
+
+  public User updateOne(User user) { return userRepo.save(user);}
 }

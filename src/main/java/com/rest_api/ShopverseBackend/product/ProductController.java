@@ -58,9 +58,9 @@ public class ProductController {
   }
 
   @PatchMapping("/{productId}")
-  public ResponseEntity<Object> updateOne(@PathVariable UUID productId, @RequestBody Product product) {
+    public ResponseEntity<Object> updateOne(@PathVariable UUID productId, @RequestBody Product product) {
 
-    Optional<Product> existingProduct = productRepo.findById(productId);
+      Optional<Product> existingProduct = productRepo.findById(productId);
 
     if (existingProduct.isEmpty()) {
       return new ResponseEntity<>("Product not found", HttpStatus.NOT_FOUND);
