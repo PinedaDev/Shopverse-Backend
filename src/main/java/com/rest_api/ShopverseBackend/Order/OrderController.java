@@ -1,4 +1,4 @@
-package com.rest_api.ShopverseBackend.order;
+package com.rest_api.ShopverseBackend.Order;
 
 import com.rest_api.ShopverseBackend.product.Product;
 import com.rest_api.ShopverseBackend.product.ProductRepository;
@@ -27,6 +27,21 @@ public class OrderController {
     return orderService.findAll();
   }
 
+  //fix me
+  /*
+  @GetMapping("/user/{userId}")
+  public ResponseEntity<Object> findOrdersByUserId(@PathVariable UUID userId) {
+    Optional<List<Order>> orders = orderService.findByUserId(userId);
+
+    if (orders.isEmpty()) {
+      return new ResponseEntity<>("No orders found for the user", HttpStatus.NOT_FOUND);
+    }
+
+    return new ResponseEntity<>(orders, HttpStatus.OK);
+  }
+
+   */
+
   @PostMapping
   public ResponseEntity<Object> saveOne(@RequestBody Order orderRequest) {
     Optional<User> existingUser = userRepo.findById(orderRequest.getUser().getId());
@@ -35,22 +50,44 @@ public class OrderController {
       return new ResponseEntity<>("No user found to make order", HttpStatus.BAD_REQUEST);
     }
 
-    // Update the Order entity with the productIds and quantities
-    List<OrderProduct> orderProducts = orderRequest.getProducts();
-    List<UUID> productIds = orderProducts.stream()
+    // Validate the products list
+    List<OrderProduct> orderProductRequests = orderRequest.getOrderProducts();
+    List<UUID> productIds = orderProductRequests.stream()
             .map(OrderProduct::getProductId)
-            .toList();
+            .collect(Collectors.toList());
 
     List<Product> existingProducts = productRepo.findAllById(productIds);
-    if (existingProducts.size() != productIds.size()) {
+
+    Set<UUID> existingProductIds = existingProducts.stream()
+            .map(Product::getProductId)
+            .collect(Collectors.toSet());
+
+    if (!existingProductIds.containsAll(productIds)) {
       return new ResponseEntity<>("Some products do not exist", HttpStatus.BAD_REQUEST);
     }
+
+
+    // Create the Order entity
+    Order newOrder = new Order();
+    newOrder.setUser(existingUser.get());
+
+    List<OrderProduct> orderProducts = new ArrayList<>();
+    for (OrderProduct orderProductRequest : orderProductRequests) {
+      OrderProduct orderProduct = new OrderProduct();
+      orderProduct.setProductId(orderProductRequest.getProductId());
+      orderProduct.setColor(orderProductRequest.getColor());
+      orderProduct.setSize(orderProductRequest.getSize());
+      orderProduct.setAmount(orderProductRequest.getAmount());
+      orderProducts.add(orderProduct);
+    }
+
+    // Set the orderProducts directly to the Order entity
+    newOrder.setOrderProducts(orderProducts);
+
     // Generate the UUID manually
     UUID orderId = UUID.randomUUID();
-
-    // Update the Order entity with the generated orderId
-    Order newOrder = new Order(existingUser.get(), orderRequest.getProducts(), Order.Status.PENDING);
     newOrder.setOrderId(orderId);
+    newOrder.setStatus(Order.Status.PENDING);
 
     orderRepo.save(newOrder);
     return new ResponseEntity<>(newOrder, HttpStatus.OK);
@@ -67,4 +104,3 @@ public class OrderController {
     return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
   }
 }
-

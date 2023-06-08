@@ -1,4 +1,4 @@
-package com.rest_api.ShopverseBackend.order;
+package com.rest_api.ShopverseBackend.Order;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.rest_api.ShopverseBackend.product.Product;
@@ -11,7 +11,6 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -26,7 +25,7 @@ public class Order {
 
   @Id
   @GeneratedValue
-  @UuidGenerator
+  @JsonProperty("id")
   private UUID orderId;
 
   @ManyToOne(optional = false)
@@ -35,16 +34,17 @@ public class Order {
 
   @ElementCollection
   @CollectionTable(name = "_order_product", joinColumns = @JoinColumn(name = "order_id"))
-  private List<OrderProduct> products = new ArrayList<>();
+  @Column(name = "product_id")
+  private List<OrderProduct> orderProducts = new ArrayList<>();
 
   @Enumerated(EnumType.STRING)
   private Status status;
 
   private LocalDateTime issuedAt = LocalDateTime.now();
 
-  public Order(User user, List<OrderProduct> products, Status status) {
+  public Order(User user, List<OrderProduct> orderProducts, Status status) {
     this.user = user;
-    this.products = products;
+    this.orderProducts = orderProducts;
     this.status = status;
   }
 

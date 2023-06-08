@@ -37,6 +37,7 @@ public class UserController {
   public List<User> findAll() {
     return userRepository.findAll();
   }
+
   @GetMapping("/{userId}")
   public ResponseEntity<Object> findById(@PathVariable UUID userId){
     Optional<User> user = userService.findById(userId);
@@ -46,25 +47,6 @@ public class UserController {
     }
 
     return new ResponseEntity<>(user, HttpStatus.OK);
-  }
-
-  @PatchMapping("/{userId}")
-  public ResponseEntity<Object> updateOne(@PathVariable UUID userId, @RequestBody User user) {
-
-    Optional<User> existingUser = userRepository.findById(userId);
-
-    if (existingUser.isEmpty()) {
-      return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
-    }
-
-    User updatedUser = existingUser.get();
-
-    if (user.getUsername() != null) {
-      updatedUser.setUsername(user.getUsername());
-    }
-
-    User result = userRepository.save(updatedUser);
-    return new ResponseEntity<>(result, HttpStatus.OK);
   }
 
   @PostMapping("/signin")

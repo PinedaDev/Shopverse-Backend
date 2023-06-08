@@ -1,7 +1,4 @@
 package com.rest_api.ShopverseBackend.user;
-
-import com.rest_api.ShopverseBackend.order.Order;
-import com.rest_api.ShopverseBackend.product.Product;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
