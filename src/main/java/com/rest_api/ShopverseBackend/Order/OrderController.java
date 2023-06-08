@@ -52,6 +52,18 @@ public class OrderController {
 
     // Validate the products list
     List<OrderProduct> orderProductRequests = orderRequest.getOrderProducts();
+
+    Set<String> uniqueCombinations = new HashSet<>();
+    for (OrderProduct orderProductRequest : orderProductRequests) {
+      String combination = orderProductRequest.getProductId() + "-" +
+              orderProductRequest.getColor() + "-" +
+              orderProductRequest.getSize();
+
+      if (!uniqueCombinations.add(combination)) {
+        return new ResponseEntity<>("Duplicate product combination found", HttpStatus.BAD_REQUEST);
+      }
+    }
+
     List<UUID> productIds = orderProductRequests.stream()
             .map(OrderProduct::getProductId)
             .collect(Collectors.toList());

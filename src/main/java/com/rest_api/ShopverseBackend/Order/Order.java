@@ -25,7 +25,6 @@ public class Order {
 
   @Id
   @GeneratedValue
-  @JsonProperty("id")
   private UUID orderId;
 
   @ManyToOne(optional = false)
