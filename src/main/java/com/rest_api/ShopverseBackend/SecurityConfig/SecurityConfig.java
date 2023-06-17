@@ -46,7 +46,7 @@ public class SecurityConfig {
   CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration configuration = new CorsConfiguration();
     configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "http://localhost:8080", "https://shopverse-store.netlify.app/", "https://shopverse-backend-zsuc.onrender.com"));
-    configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
+    configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PATCH", "DELETE"));
     configuration.setAllowedHeaders(List.of("*"));
     configuration.setAllowedOriginPatterns(List.of("*"));
     configuration.setAllowCredentials(true);
